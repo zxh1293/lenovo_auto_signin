@@ -7,8 +7,8 @@
 import requests
 from bs4 import BeautifulSoup
 
-USERNAME = input("请输入你的账号：")
-PASSWORD = input("请输入你的密码：")
+USERNAME = os.environ["USERNAME"]
+PASSWORD = os.environ["PASSWORD"]
 
 PROXIES = {
     "http": "http://127.0.0.1:10809",
