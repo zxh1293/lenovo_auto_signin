@@ -4,6 +4,7 @@
 # @File : main.py
 # @Software: PyCharm
 
+import os
 import requests
 from bs4 import BeautifulSoup
 
