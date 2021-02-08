@@ -11,3 +11,5 @@ Fork本项目，Secrets添加环境变量`USERNAME`和`PASSWORD`
 不支持多用户，仅支持用户名+密码登录方式
 
 博客图文教程：https://www.locjj.com/bug/12.html
+
+2021.02.08更新：添加server酱推送微信消息，用于提示用户是否完成签到
