@@ -8,6 +8,7 @@ import os
 import requests
 from bs4 import BeautifulSoup
 
+PUSH_KEY = os.environ["PUSH_KEY"]
 USERNAME = os.environ["USERNAME"]
 PASSWORD = os.environ["PASSWORD"]
 
@@ -38,9 +39,14 @@ def getContinuousDays(session):
     url = "https://club.lenovo.com.cn/signlist/"
     c = session.get(url,headers=HEADER_COUNT)
     soup = BeautifulSoup(c.text,"html.parser")
-    cc = soup.select("body > div.signInMiddleWrapper > div > div.signInTimeInfo > div.signInTimeInfoMiddle > p.signInTimeMiddleBtn")
-    cc = cc[0].get_text()
-    return cc
+    day = soup.select("body > div.signInMiddleWrapper > div > div.signInTimeInfo > div.signInTimeInfoMiddle > p.signInTimeMiddleBtn")
+    day = day[0].get_text()
+    url_push = "https://sc.ftqq.com/%s.send"%PUSH_KEY
+    push_data = {
+        "text":"联想商城签到情况：%s"%day
+    }
+    push = requests.post(url_push,data=push_data)
+    return day,push
 
 
 def signin(session):
