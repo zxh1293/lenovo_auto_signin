@@ -66,4 +66,4 @@ if __name__ == '__main__':
         print("登录失败，请检查账号密码")
     else:
         signin(s)
-        print("当前已连续签到%s天"%getContinuousDays(s))
+        print(getContinuousDays(s))
