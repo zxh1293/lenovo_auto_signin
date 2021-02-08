@@ -46,7 +46,7 @@ def getContinuousDays(session):
         "text":"联想商城签到情况：%s"%day
     }
     push = requests.post(url_push,data=push_data)
-    return day,push
+    return day,push.text
 
 
 def signin(session):
