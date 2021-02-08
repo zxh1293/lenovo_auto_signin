@@ -40,9 +40,7 @@ def getContinuousDays(session):
     soup = BeautifulSoup(c.text,"html.parser")
     cc = soup.select("body > div.signInMiddleWrapper > div > div.signInTimeInfo > div.signInTimeInfoMiddle > p.signInTimeMiddleBtn")
     cc = cc[0].get_text()
-    if cc == " 已签到 ":
-        return 1
-    return cc[5:6]
+    return cc
 
 
 def signin(session):
